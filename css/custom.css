@@ -119,10 +119,14 @@ no-padding-sides{
     padding-left:18px;
 }
 @media (max-width:768px){
-    #countries{
-        height:300px;
-        margin: 20px auto;
-        width:95%;
-        
+    .online{
+        text-align:center;
+    }
+    #addBtn{
+        margin-bottom:10px;
+        margin-right:150px;
+    }
+    #delete{
+        margin-left: 150px;
     }
 }
