@@ -10,9 +10,6 @@ $("#newBookBtn").click(function (){
 })
 
 
-
-
-
 const bookRow = document.getElementById('bookRow');
 const elibrary = [];
 function Book(title, pub, pages, yearPub, coverImgURL,bookPrice, bookAuthor, bookLang,bookCount, bookExtr) {
@@ -61,61 +58,70 @@ function validateInput() {
 }
 
 
-function render() {
-	if (localStorage.getItem('books') != null) {
-		let booksArray = JSON.parse(localStorage.getItem('books'));
-		for (var i = 0; i < booksArray.length; i++) {
-			bookRow.innerHTML += `<div class="col-md-4 all-details mt-5">
+// function render() {
+// 	if (localStorage.getItem('books') != null) {
+// 		let booksArray = JSON.parse(localStorage.getItem('books'));
+// 		for (var i = 0; i < booksArray.length; i++) {
+// 			bookRow.innerHTML += `<div class="col-md-4 all-details mt-5">
 			
-			<div class="row">
-			  <div class="col-md-6">
-			    <div class="book-cover">
-			  <img src="${booksArray[i].coverImgURL}" onclick="displayBookDetails(${i})" class="card-img images img-fluid">
-			  <span class="all-buttons btn btn-default" onclick="displayBookDetails(${i})">Details</span>
-			  <button class="all-buttons favoriteButton mt-2" style="background-color:${booksArray[i].read}";>fav</button>
-		         </div>
-			  </div>
-			  <div class="col-md-6">
+// 			<div class="row">
+// 			  <div class="col-md-6">
+// 			    <div class="book-cover">
+// 			  <img src="${booksArray[i].coverImgURL}" onclick="displayBookDetails(${i})" class="card-img images img-fluid">
+// 			  <span class="all-buttons btn btn-default" onclick="displayBookDetails(${i})">Details</span>
+// 			  <button class="all-buttons favoriteButton mt-2" style="background-color:${booksArray[i].read}";>fav</button>
+// 		         </div>
+// 			  </div>
+// 			  <div class="col-md-6">
 			 
-                    <p style="color:${booksArray[i].read}";  class="card-title text-white">Title: ${booksArray[i].title}</p>
-                    <p class="card-title text-white" id="authorofBook">Author: ${booksArray[i].author}</p>
-                    <h6 class="card-title text-white">Price: &#8358;${booksArray[i].price}</h6>
-					<h6 class="card-title text-white">Published : ${booksArray[i].yearPub}</h6>
-					<div class="delete_details">
+//                     <p style="color:${booksArray[i].read}";  class="card-title text-white">Title: ${booksArray[i].title}</p>
+//                     <p class="card-title text-white" id="authorofBook">Author: ${booksArray[i].author}</p>
+//                     <h6 class="card-title text-white">Price: &#8358;${booksArray[i].price}</h6>
+// 					<h6 class="card-title text-white">Published : ${booksArray[i].yearPub}</h6>
+// 					<div class="delete_details">
 				
-					<span class="all-buttons btn btn-default" onclick="deleteBook(${i})" >Delete</span>
-					</div>
-			  </div>
-			</div>
+// 					<span class="all-buttons btn btn-default" onclick="deleteBook(${i})" >Delete</span>
+// 					</div>
+// 			  </div>
+// 			</div>
                
 				
            
-        </div>`;
-		}
-	} else {
-		console.log('No books yet');
-	}
-}
+//         </div>`;
+// 		}
+// 	} else {
+// 		console.log('No books yet');
+// 	}
+// }
 
 
-function render() {
-	if (localStorage.getItem('books') != null) {
-		let booksArray = JSON.parse(localStorage.getItem('books'));
-		for (var i = 0; i < booksArray.length; i++) {
-			bookRow.innerHTML += `<div class="col-md-4 mb-5">
-            <div class="color">
-				<img src="${booksArray[i].coverImgURL}" onclick="showDetails(${i})" class="card-img image img-fluid">
-					<h3 class="card-title">${booksArray[i].title}</h3>
-					<p>Author: ${booksArray[i].author}</p>
-					<p>Price: &#8358;${booksArray[i].price}</p>
-					<p>Year of Publishing: ${booksArray[i].yearPub}</p>
-                    <span id="delete"class="btn btn-primary" onclick="deleteBook(${i})" >Delete Book</span>
-		</div>`;
-		}
-	} else {
-		console.log('No books yet');
-	}
-}
+// function render() {
+// 	if (localStorage.getItem('books') != null) {
+// 		let booksArray = JSON.parse(localStorage.getItem('books'));
+// 		for (var i = 0; i < booksArray.length; i++) {
+// 			bookRow.innerHTML += `<div class="col-md-4 mb-5">
+//             <div class="color">
+// 				<img src="${booksArray[i].coverImgURL}" onclick="showDetails(${i})" class="card-img image img-fluid">
+// 					<h3 class="card-title">${booksArray[i].title}</h3>
+// 					<p>Author: ${booksArray[i].author}</p>
+// 					<p>Price: &#8358;${booksArray[i].price}</p>
+// 					<p>Year of Publishing: ${booksArray[i].yearPub}</p>
+//                     <span id="delete"class="btn btn-primary" onclick="deleteBook(${i})" >Delete Book</span>
+// 		</div>`;
+// 		}
+// 	} else {
+// 		console.log('No books yet');
+// 	}
+// }
+
+$(function(){
+    var template = new EJS({
+        text: $('#template').html()
+    });
+    let booksArray = JSON.parse(localStorage.getItem('books'));
+    console.log(booksArray);
+    $('#list').html(template.render({list:booksArray}));
+    });
 
 const show = document.querySelector('#show');
 		function closeModalBox(){
@@ -141,6 +147,19 @@ function showDetails(boo){
 
 		document.getElementById("show").style.display = 'block';
 	}
+}
+
+function ShowFavorite(fav){
+	console.log(fav);
+	booksArray = JSON.parse(localStorage.getItem('books'))
+	for(let i = 0; i < booksArray.length;i++){
+		if(i = fav){
+			booksArray[i].read += 1;
+			break;
+		}
+	}
+	localStorage.setItem('books',JSON.stringify(booksArray));
+	location.reload();
 }
 		
 // function closeModalBox(){
@@ -169,7 +188,10 @@ function deleteBook(bookID) {
 		alert('book deleted');
 		location.reload();
 	}
+	localStorage.set('books',JSON.stringify(booksArray));
+	location.reload();
 }
+
 
 		
 

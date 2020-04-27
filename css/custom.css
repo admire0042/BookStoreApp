@@ -1,5 +1,5 @@
 body{
-    background-color: grey;
+    background-color:rgb(27, 25, 25);
 }
 ul.slider{
     position: relative;
@@ -55,7 +55,10 @@ no-padding-sides{
     overflow: hidden;
    
 }
-
+.btn3{
+margin-left:50px;
+margin-top:1px;
+}
 
 .header{
     background-image: url(../images/store.jpg);
@@ -66,10 +69,11 @@ no-padding-sides{
 }
 
 #delete{
-    margin-left: 100px;
+    margin-right: 250px;
 }
 .image{
     height: 250px;
+    
 }
 #bookModal{
     position: fixed;
@@ -97,6 +101,13 @@ no-padding-sides{
     padding-right:5px;
     
 }
+
+.image2{
+    margin-left:20px;
+    margin-bottom:5px;
+    margin-top:20px;
+}
+
 #show p {
     margin-bottom: 2px;
 }
@@ -104,16 +115,22 @@ no-padding-sides{
     color:white;
 }
 .color{
-    background-color: blueviolet;
+    background-color:rgb(46, 43, 43);
     color:white;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
-.color h3,p{
-    padding-left:20px;
+.color h3 p{
+    padding-left:25px;
 }
+
 .btn2{
     width:80px;
-    margin-left:70px;
+    margin-left:40px;
+}
+#divs{
+    
+    display:flex;
+    margin-left:5px;
 }
 .clas6{
     padding-left:18px;
@@ -128,5 +145,19 @@ no-padding-sides{
     }
     #delete{
         margin-left: 150px;
+    }
+
+    .image2{
+        width:80%;
+    }
+
+    .cover{
+        margin-left:20px;
+    }
+    #divs{
+        margin-left:80px;
+    }
+    .color{
+        margin-right:80px;
     }
 }

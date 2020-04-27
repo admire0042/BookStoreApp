@@ -97,12 +97,60 @@
           </div>
       </div>
       <div class="row" id="bookRow">
-        
       </div>
+
      
   </section>
-    <!-- <script src="./js/custom.js"></script> -->
-    <script src="./js/jquery.js"></script>
+
+  <section class="container">
+    <div class="row" id="list">
+
+    </div>
+    </section>
+
+  
+
+<!--function render() {
+	if (localStorage.getItem('books') != null) {
+		let booksArray = JSON.parse(localStorage.getItem('books'));
+		for (var i = 0; i < booksArray.length; i++) {
+			bookRow.innerHTML += `<div class="col-md-4 mb-5">
+            <div class="color">
+				<img src="${booksArray[i].coverImgURL}" onclick="showDetails(${i})" class="card-img image img-fluid">
+					<h3 class="card-title">${booksArray[i].title}</h3>
+					<p>Author: ${booksArray[i].author}</p>
+					<p>Price: &#8358;${booksArray[i].price}</p>
+					<p>Year of Publishing: ${booksArray[i].yearPub}</p>
+                    <span id="delete"class="btn btn-primary" onclick="deleteBook(${i})" >Delete Book</span>
+		</div>`;
+        }-->
+    <script id="template2" type="text/ejs">
+        
+    </script>
+
+  <script id="template" type="text/ejs">
+    <% for (var k = 0; k < list.length; ++k) {
+        var message = list[k];  %>
+        <div class="col-md-3 color mb-5 ml-5">
+            <img class="image2" id="<%=k%>"src="<%=message.coverImgURL%>"onclick="showDetails(this.id)" class="card-img  img-fluid">
+            <div class="cover">
+            <h3><%= message.title%></h3>
+            <div class="ml-3"> <%=message.read% 2 != 0 ? "&#9734;" : ""%></div>
+            <p>Author: <%= message.author %></p>
+            <p>Price: &#8358;<%= message.price %></p>
+            <p>Year of Publishing: <%= message.yearPub %></p>
+            <div id="divs"><span class="btn  btn-primary mr-2" id="<%=k%>" onclick="ShowFavorite(this.id)">Favorite</span>
+            <span id="<%=k%>"class="btn btn-primary" onclick="deleteBook(this.id)">Delete Book</span></div>
+        </div>
+        </div>
+    <% } %>
+    </script>
+
+    
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/ejs_production.js"></script>
+     <script src="./js/jquery.js"></script>
     <script src="./js/custom.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 </body>
