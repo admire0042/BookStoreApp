@@ -32,7 +32,7 @@
  <section id="bookModal" class="container-fluid">
      <div class="row">
          <div class="col-md-4 col-lg-3"></div>
-         <div class="col-md-4 col-lg-6">
+         <div class="col-md-4 col-lg-6"id="form">
              <form action="">
                  <div class="form-group">
                      <input type="text" class="form-control" title="title" id="txtTitle" placeholder="book title" autofocus />             
@@ -128,23 +128,6 @@
         
     </script>
 
-  <script id="template" type="text/ejs">
-    <% for (var k = 0; k < list.length; ++k) {
-        var message = list[k];  %>
-        <div class="col-md-3 color mb-5 ml-5">
-            <img class="image2" id="<%=k%>"src="<%=message.coverImgURL%>"onclick="showDetails(this.id)" class="card-img  img-fluid">
-            <div class="cover">
-            <h3><%= message.title%></h3>
-            <div class="ml-3"> <%=message.read% 2 != 0 ? "&#9734;" : ""%></div>
-            <p>Author: <%= message.author %></p>
-            <p>Price: &#8358;<%= message.price %></p>
-            <p>Year of Publishing: <%= message.yearPub %></p>
-            <div id="divs"><span class="btn  btn-primary mr-2" id="<%=k%>" onclick="ShowFavorite(this.id)">Favorite</span>
-            <span id="<%=k%>"class="btn btn-primary" onclick="deleteBook(this.id)">Delete Book</span></div>
-        </div>
-        </div>
-    <% } %>
-    </script>
 
     
 

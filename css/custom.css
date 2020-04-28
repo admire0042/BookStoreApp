@@ -62,7 +62,7 @@ margin-top:1px;
 
 .header{
     background-image: url(../images/store.jpg);
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     height:400px;
@@ -160,4 +160,13 @@ margin-top:1px;
     .color{
         margin-right:80px;
     }
+
+   #form{
+       height:3vh;
+       width:350px;
+       margin-left:20px;
+   }
+   input{
+       height: 5px;
+   }
 }
